@@ -117,6 +117,11 @@ stamp-doc-rc: $(top_srcdir)/init.h makedoc$(EXEEXT) $(srcdir)/Muttrc.head
 	sed -e 's,[@]docdir[@],$(docdir),' $(srcdir)/Muttrc.head > Muttrc
 	$(CPP) $(AM_CPPFLAGS) $(DEFS) $(CPPFLAGS) -D_MAKEDOC -C \
 	  $(top_srcdir)/init.h | ./makedoc$(EXEEXT) -c >> Muttrc
+	ruby -e 'File.open("Muttrc", "r+") { |f| \
+		buf = f.readlines.map(&:rstrip).join("\n").gsub /#(\n# set .*?\n)/m, "\\1"; \
+		f.rewind; \
+		f.puts buf; \
+	}'
 	touch stamp-doc-rc
 
 manual.html: $(srcdir)/html.xsl $(srcdir)/mutt.xsl stamp-doc-xml $(srcdir)/mutt.css
