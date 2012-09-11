@@ -126,7 +126,7 @@ event_t mutt_getch (void)
 
   ret.ch = ch;
   ret.op = 0;
-  return (ch == ctrl ('G') ? err : ret);
+  return (ch == ctrl ('C') ? err : ret);
 }
 
 int _mutt_get_field (const char *field, char *buf, size_t buflen, int complete, int multiple, char ***files, int *numfiles)
