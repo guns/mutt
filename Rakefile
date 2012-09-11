@@ -11,7 +11,7 @@ task :configure do
     --prefix=#{ENV['PREFIX'] || '/opt/mutt'}
     --enable-gpgme
     --disable-pgp
-    --disable-smime
+    --enable-smime
     --enable-smtp
     --enable-exact-address
     --enable-hcache
