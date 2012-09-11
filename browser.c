@@ -275,8 +275,8 @@ folder_format_str (char *dest, size_t destlen, size_t col, char op, const char *
 	break;
       }
 #endif
-      snprintf (tmp, sizeof (tmp), "%%%sc", fmt);
-      snprintf (dest, destlen, tmp, folder->ff->new ? 'N' : ' ');
+      snprintf (tmp, sizeof (tmp), "%%%sd", fmt);
+      snprintf (dest, destlen, tmp, folder->ff->new);
       break;
       
     case 's':
