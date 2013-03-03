@@ -1939,7 +1939,7 @@ mutt_pager (const char *banner, const char *fname, int flags, pager_t *extra)
       case OP_NEXT_PAGE:
 	if (lineInfo[curline].offset < sb.st_size-1)
 	{
-	  topline = upNLines (PagerContext, lineInfo, curline, hideQuoted);
+	  topline = upNLines (PagerContext+1, lineInfo, curline, hideQuoted);
 	}
 	else if (option (OPTPAGERSTOP))
 	{
@@ -1957,7 +1957,7 @@ mutt_pager (const char *banner, const char *fname, int flags, pager_t *extra)
       case OP_PREV_PAGE:
 	if (topline != 0)
 	{
-	  topline = upNLines (bodylen-PagerContext, lineInfo, topline, hideQuoted);
+	  topline = upNLines (bodylen-PagerContext-1, lineInfo, topline, hideQuoted);
 	}
 	else
 	  mutt_error _("Top of message is shown.");

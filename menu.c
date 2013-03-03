@@ -522,12 +522,12 @@ static void menu_length_jump (MUTTMENU *menu, int jumplen)
 
 void menu_next_page (MUTTMENU *menu)
 {
-  menu_length_jump (menu, MAX (menu->pagelen /* - MenuOverlap */, 0));
+  menu_length_jump (menu, MAX (menu->pagelen - 1, 0));
 }
 
 void menu_prev_page (MUTTMENU *menu)
 {
-  menu_length_jump (menu, 0 - MAX (menu->pagelen /* - MenuOverlap */, 0));
+  menu_length_jump (menu, 0 - MAX (menu->pagelen - 1, 0));
 }
 
 void menu_half_down (MUTTMENU *menu)
