@@ -23,6 +23,8 @@ task :configure do
     --with-idn
   ]
 
+  cmd << '--enable-debug' if ENV['DEBUG'] == '1'
+
   if RUBY_PLATFORM =~ /darwin/
     if system '/bin/sh -c "command -v brew" &>/dev/null'
       env['CFLAGS' ] ||= ''
