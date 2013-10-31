@@ -7,9 +7,10 @@ task :configure do
   cmd = %W[
     ./prepare
     --prefix=#{ENV['PREFIX'] || '/opt/mutt'}
+    --sysconfdir=#{ENV['SYSCONFDIR'] || File.join(ENV['PREFIX'], 'etc')}
     --enable-gpgme
     --disable-pgp
-    --enable-smime
+    --disable-smime
     --enable-smtp
     --enable-exact-address
     --enable-hcache
