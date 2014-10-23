@@ -17,6 +17,7 @@ task :configure do
     --disable-full-doc
     --with-regex
     --with-ssl
+    --with-gnutls
     --with-sasl
     --with-gdbm
     --with-idn
