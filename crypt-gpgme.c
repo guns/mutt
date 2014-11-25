@@ -4409,12 +4409,13 @@ static void init_common(void)
 /* Initialization.  */
 static void init_gpgme (void)
 {
-  /* Make sure that gpg-agent is running.  */
-  if (! getenv ("GPG_AGENT_INFO"))
+  /* Make sure that gpgme is working.  */
+  if (gpgme_engine_check_version (GPGME_PROTOCOL_OpenPGP) != GPG_ERR_NO_ERROR &&
+      gpgme_engine_check_version (GPGME_PROTOCOL_CMS) != GPG_ERR_NO_ERROR)
     {
-      mutt_error (_("\nUsing GPGME backend, although no gpg-agent is running"));
+      mutt_error (_("\nGPGME backend reports no engines available"));
       if (mutt_any_key_to_continue (NULL) == -1)
-	mutt_exit(1);
+        mutt_exit(1);
     }
 }
 
