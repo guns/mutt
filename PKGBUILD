@@ -1,6 +1,6 @@
 # Maintainer: Sung Pae <self@sungpae.com>
 pkgname=mutt-guns
-pkgver=
+pkgver=0
 pkgrel=1
 pkgdesc="Sung Pae's mutt build"
 arch=('x86_64')
