@@ -1,17 +1,18 @@
 # Maintainer: Sung Pae <self@sungpae.com>
-pkgname=mutt-guns
-pkgver=0
+pkgname=mutt-nerv
+pkgver=
 pkgrel=1
-pkgdesc="Sung Pae's mutt build"
+pkgdesc="Custom mutt build"
 arch=('x86_64')
 url="https://github.com/guns/mutt"
 license=('GPL')
 backup=('etc/Muttrc')
-groups=('guns')
+groups=('nerv')
 depends=('gpgme' 'ncurses' 'openssl' 'libsasl' 'gdbm' 'libidn' 'mime-types')
 makedepends=('git' 'ruby')
 provides=('mutt')
 conflicts=('mutt')
+replaces=('mutt-guns')
 
 pkgver() {
     printf %s "$(git describe --long --tags | tr - .)"
